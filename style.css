@@ -1,0 +1,22 @@
+.card {
+    font-family: arial;
+    font-size: 20px;
+    text-align: left;
+    color: white;
+    background-color: black;
+}
+.field {
+    margin: 15px 0;
+}
+.label {
+    font-size: 5px;
+    color: #888;
+    display: block;
+    margin-bottom: 4px;
+}
+details summary {
+    list-style: none;
+}
+details summary::-webkit-details-marker {
+    display: none;
+}

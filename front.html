@@ -1,0 +1,105 @@
+<div class="card">
+    {{edit:isNameCard}}
+    <script>
+        const isNameCard = "{{edit:isNameCard}}".trim() !== "";
+        if (isNameCard) {
+            document.documentElement.style.setProperty('--frequency-value', '5000');
+        } else {
+            document.documentElement.style.setProperty('--frequency-value', '{{edit:Frequency}}');
+        }
+    </script>
+    {{#Word}}
+    <div class="field">
+        <span class="label">Word</span>
+        <div style="font-size: 80px;">{{edit:Word}}</div>
+    </div>
+    {{/Word}}
+    {{^isNameCard}}
+    {{#Hint(Pronounciation)}}
+    <div class="field">
+        <span class="label">Hint(Pronounciation)</span>
+        <details>
+            <summary style="font-size: 28px; cursor: pointer; color: #666;">Hinweis anzeigen</summary>
+            <div style="font-size: 28px; margin-top: 28px;">{{edit:Hint(Pronounciation)}}</div>
+        </details>
+    </div>
+    {{/Hint(Pronounciation)}}
+    {{/isNameCard}}
+    {{^isNameCard}}
+    {{#HintNotHidden}}
+    <div class="field">
+        <span class="label">HintNotHidden</span>
+        <div style="font-size: 28px;">{{edit:HintNotHidden}}</div>
+    </div>
+    {{/HintNotHidden}}
+    {{/isNameCard}}
+    <!-- Frequency – immer mit ID, damit das Script es findet -->
+    <div class="field">
+        <span class="label">Frequency</span>
+        <div style="font-size: 12px;" id="frequency">
+            {{#isNameCard}}
+                <span style="color: gray;">5000</span>
+            {{/isNameCard}}
+            {{^isNameCard}}
+                {{edit:Frequency}}
+            {{/isNameCard}}
+        </div>
+    </div>
+    {{^isNameCard}}
+    {{#SoundFront}}
+    <div class="field">
+        <span class="label">SoundFront</span>
+        <div style="font-size: 20px;">{{edit:SoundFront}}</div>
+    </div>
+    {{/SoundFront}}
+    {{/isNameCard}}
+    {{#Picture}}
+    <div class="field">
+        <span class="label">Picture</span>
+        <div style="width: 443px; height: 300px; margin: 10px auto; overflow: hidden; border: 1px solid #ddd; border-radius: 4px; background: #f;">
+            {{edit:Picture}}
+        </div>
+    </div>
+    {{/Picture}}
+    {{#SentencePlain}}
+    <div class="field">
+        <span class="label">SentencePlain</span>
+        <div style="font-size: 28px;">{{edit:SentencePlain}}</div>
+    </div>
+    {{/SentencePlain}}
+    {{#Link to Related Cards}}
+    <div class="field">
+        <span class="label">Link to Related Cards</span>
+        <div style="font-size: 10px; border: 1px solid #ccc; padding: 10px; margin: 10px 0; border-radius: 5px; background: #f;">
+            {{edit:Link to Related Cards}}
+        </div>
+    </div>
+    {{/Link to Related Cards}}
+</div>
+
+    <!-- Korrigiertes Farbscript -->
+<script>
+(function() {
+    var freqText = "{{edit:Frequency}}".trim();
+    var freqValue = freqText !== "" ? parseInt(freqText, 10) : 5000;
+    if (isNaN(freqValue)) freqValue = 5000;
+
+    var freqElement = document.getElementById('frequency');
+    if (freqElement) {
+        var color = 'black';
+        if (freqValue >= 1 && freqValue <= 1000) color = 'red';
+        else if (freqValue <= 4999) color = 'green';
+        else if (freqValue === 5000) color = 'gray';
+        else if (freqValue <= 15000) color = 'blue';
+        else if (freqValue <= 30000) color = 'yellow';
+
+        freqElement.style.color = color;
+
+        var innerSpan = freqElement.querySelector('span');
+        if (innerSpan) {
+            innerSpan.style.color = color;
+        }
+    }
+})();
+</script>
+</div>
