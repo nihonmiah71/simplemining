@@ -26,7 +26,7 @@ Dieser Notiztyp ist Teil eines Systems und funktioniert nur, wenn alle folgenden
 | **Felder** | Der Notiztyp muss die Felder `Word` und `Link to Related Cards` enthalten. | *Im .apkg enthalten* |
 | **Link Anzeige** | Zur **Anzeige** der erzeugten Links auf der Karte. | **Hyperlink Note IDs (Code: 1423933177)** |
 | **Yomitan Config** | Deine persönliche Yomitan-Konfiguration für Anki-Exporte. | **`yomitan-settings-2025-12-15-22-32-30.json`** |
-| **Add-ons** | Die vollständige Liste aller benötigten Anki-Add-ons. | **`anki_addon_codes.txt`** |
+| **Add-ons** | Die vollständige Liste aller benötigten Anki-Add-ons. | **`ankiaddoncodes.txt`** |
 
 ---
 
